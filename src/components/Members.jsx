@@ -1,7 +1,7 @@
 import Member from './Member';
 import { nanoid } from 'nanoid';
 
-const Members = ( {members, setMembers} ) => {
+const Members = ( { members, setMembers, filteredMembers } ) => {
 
     // functions
     const addMember = () => {
@@ -14,18 +14,19 @@ const Members = ( {members, setMembers} ) => {
                     name: "",
                     balance: 0,
                     currency: 'EUR',
-                    id: nanoid()
+                    id: nanoid(),
+                    deleted: false,
                 }
             ]
         });
     };
 
-
-
+    
     return (
         <main className="flex flex-col items-center gap-4">
             {/* members card */}
             <div className="flex flex-col items-center gap-4 lg:flex-row px-4">
+                
                 {members.map((member) => (
                     <Member 
                         key={member.id}
@@ -34,7 +35,6 @@ const Members = ( {members, setMembers} ) => {
                         id={member.id}
                         currency={member.currency}
                         setMembers={setMembers}
-                        members={members}                     
                     />
                 ))}            
             </div>

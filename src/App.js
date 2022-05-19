@@ -8,22 +8,22 @@ function App() {
 
   // State
   const [members, setMembers] = useState([]);
+  const [filteredMembers, setFilteredMembers] = useState([])
 
 
   // Effect
   // get members from local storage when starting the app
   useEffect(() =>{
-    getLocalMembers();
-  },[]);
+    setFilteredMembers((members.filter(member => member.deleted !== true)))
+  },[members]);
 
   // ! Cannot be saved in the local storage
   // save members in local storage everytime when members are updated
   useEffect(() => {
     saveLocalMembers();
-  }, [members])
+  }, [filteredMembers])
 
-
-  
+ 
 
   // Local Storage
   const saveLocalMembers = () => {
@@ -41,7 +41,8 @@ function App() {
 
 
 
-  // console.log(members)
+  console.log('members', members);
+  console.log('filteredmembers', filteredMembers);
   
 
   return (
