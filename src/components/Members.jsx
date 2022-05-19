@@ -25,7 +25,7 @@ const Members = ( {members, setMembers} ) => {
     return (
         <main className="flex flex-col items-center gap-4">
             {/* members card */}
-            <div className="flex flex-col items-center gap-4 md:flex-row ">
+            <div className="flex flex-col items-center gap-4 lg:flex-row px-4">
                 {members.map((member) => (
                     <Member 
                         key={member.id}
