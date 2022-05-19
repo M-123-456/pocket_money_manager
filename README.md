@@ -1,18 +1,22 @@
 # Pocket Money Manager
 
-<<<<<<< HEAD
+## Purpose
+Pocket money manager manages the balance of registered members.
 
-- State 
-    - members: { name: , balance: }
-    - balance
+## Features
+- Add and delete members
+- Put income / outcome
+- Set automatic income / outcome
 
-- App.js
-    - Add member
-    - Members with name and balance
 
-- Components
-    - Member.js
-=======
-- Members (Add, delete)
-- Balance ( + , - )
->>>>>>> 291167c4014785b2d984e656ace28bc58ebae49c
+## Explanation to the files
+- Members.js
+    - Show members with name, value and currency
+    - Button to add a new members
+    - (Button to delete a member)
+
+- Member.js
+    - Input fields for state members
+    - Get values of state members and render for each member
+
+

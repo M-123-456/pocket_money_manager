@@ -3,12 +3,13 @@ import { nanoid } from 'nanoid';
 
 const Members = ( {members, setMembers} ) => {
 
+    // functions
     const addMember = () => {
         setMembers((prevMembers) => {
             return [
                 ...prevMembers,
 
-                // ! 
+                // ! I don't like it that this part (adding new member with default value) is hard coded. Do we have any better way to do?
                 {
                     name: "",
                     balance: 0,
