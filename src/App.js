@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/Header";
+import Members from "./components/Members";
+import { useState, useEffect } from 'react';
+import { nanoid } from 'nanoid';
+
 
 function App() {
+  const date = new Date()
+  const [members, setMembers] = useState([]);
+
+  console.log(members)
+    
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="min-h-screen bg-slate-500">
+      <Header date={date}/>
+      <Members members={members} setMembers={setMembers} />     
     </div>
   );
 }
