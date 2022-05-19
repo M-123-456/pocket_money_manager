@@ -1,6 +1,7 @@
 import Header from "./components/Header";
 import Members from "./components/Members";
 import { useState, useEffect } from 'react';
+import Setting from "./components/Setting";
 
 
 function App() {
@@ -8,11 +9,15 @@ function App() {
 
   // State
   const [members, setMembers] = useState([]);
-  const [filteredMembers, setFilteredMembers] = useState([])
-
-
+  const [filteredMembers, setFilteredMembers] = useState([]);
+  
   // Effect
   // get members from local storage when starting the app
+  useEffect(() => {
+    getLocalMembers();
+  },[])
+
+  // update filteredMembers when changes occur with members
   useEffect(() =>{
     setFilteredMembers((members.filter(member => member.deleted !== true)))
   },[members]);
@@ -46,11 +51,14 @@ function App() {
   
 
   return (
-    <div className="min-h-screen bg-slate-500">
-      <Header date={date}/>
+    <div className="min-h-screen bg-slate-500 relative">
+      <Header 
+        date={date}
+      />
       <Members 
         members={members} 
-        setMembers={setMembers} 
+        setMembers={setMembers}
+        filteredMembers={filteredMembers}
       />     
     </div>
   );

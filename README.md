@@ -20,3 +20,5 @@ Pocket money manager manages the balance of registered members.
     - Get values of state members and render for each member
 
 
+? 最初に入力した後にフリーズさせることは可能か？
+
