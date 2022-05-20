@@ -1,57 +1,38 @@
 import { useState } from 'react';
 import Setting from './Setting';
+import Spendpot from './Spendpot';
 
-const Member = ({ name, id, balance, currency, setMembers }) => {
+const Member = ({ name, id, startingBalance, currency, balance, regularIncomeOrExpense, movements, setMembers }) => {
 
     const [showSetting, setShowSetting] = useState(false);
+    const [showSpendpot, setShowSpendpot] = useState(false);
    
-
-    const changeHandler = (e) => {
-        setMembers((prevMembers)=> {
-            return prevMembers.map((prevMember) => {
-                return (
-                    prevMember.id === e.target.id ?
-                    {
-                        ...prevMember,
-                        [e.target.name]: e.target.value
-                    } : prevMember
-                );
-            });
-        });
-    };
-
-    // const showWarning = () => {
-    //     setShowDeleteMessage(true);
-    // }
-    
-    // const cancelDelete = () => {
-    //     setShowDeleteMessage(false);
-    // }
-
-    // const handleDelete = (e) => {
-    //     setMembers((prevMembers) => {
-    //         return prevMembers.map((prevMember) => {
-    //             return (
-    //                 prevMember.id === e.target.id ?
-    //                 {
-    //                     ...prevMember,
-    //                     deleted: true,
-    //                 } : prevMember
-    //             );
-    //         });
-    //     });
-    //     setShowDeleteMessage(false);
-    // }; 
-
     return ( 
         <>
+            {/* Card of member */}
             <div className="flex flex-start w-80 h-28 rounded-lg bg-white px-2 py-1 shadow-lg relative">              
               
                 {/* Name */}
                 <div className='text-2xl font-bold h-12 w-28 text-left'>{name}</div>
 
-                {/* Setting button */}
-                <button className='absolute right-3 text-xl' onClick={()=>setShowSetting(true)} ><i className="fa-solid fa-gear"></i></button>
+                {/* Buttons -- Spendpot / Setting */}
+                <div className='absolute right-3 text-xl'>
+                    <button className="pr-2 bg-blue-700 text-white rounded-full px-2 mr-2" onClick={()=>setShowSpendpot(true)}>
+                        Spendpot
+                    </button>
+                    {showSpendpot && 
+                    <Spendpot 
+                        key={id}
+                        name={name}
+                        id={id} 
+                        setMembers={setMembers}
+                        setShowSpendpot={setShowSpendpot}
+                    />}
+                    <button onClick={()=>setShowSetting(true)} >
+                        <i className="fa-solid fa-gear"></i>
+                    </button>
+                </div>                
+                
 
                 {/* Balance */}
                 <div className="self-end ml-auto"> 
@@ -62,14 +43,19 @@ const Member = ({ name, id, balance, currency, setMembers }) => {
                 </div>
 
             </div>
+
+            {/* Settin (shown when clicking on setting button) */}
             <Setting 
                 name={name}
                 id={id}
-                balance={balance}
+                startingBalance={startingBalance}
                 currency={currency} 
                 setMembers={setMembers}
+                regularIncomeOrExpense={regularIncomeOrExpense}
+                balance={balance}
                 showSetting={showSetting}
                 setShowSetting={setShowSetting}
+
             />
         </>
         

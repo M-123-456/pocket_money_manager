@@ -10,15 +10,17 @@ Pocket money manager manages the balance of registered members.
 
 
 ## Explanation to the files
-- Members.js
+- Members.jsx
     - Show members with name, value and currency
     - Button to add a new members
     - (Button to delete a member)
 
-- Member.js
-    - Input fields for state members
+- Member.jsx    
     - Get values of state members and render for each member
 
+- Setting.jsx
+    - Input fields for state members except for Movements
 
-? 最初に入力した後にフリーズさせることは可能か？
+- Spendpot.jsx
+    - Input field for movement of members
 

@@ -1,7 +1,6 @@
 import Header from "./components/Header";
 import Members from "./components/Members";
 import { useState, useEffect } from 'react';
-import Setting from "./components/Setting";
 
 
 function App() {
