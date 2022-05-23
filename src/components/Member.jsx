@@ -37,7 +37,7 @@ const Member = ({ name, id, startingBalance, currency, balance, regularIncomeOrE
                 {/* Balance */}
                 <div className="self-end ml-auto"> 
                     <span className="text-4xl font-bold pr-2 h-12 w-28 text-right placeholder:text-xl">
-                        {balance}                      
+                        {()=>balance()}                      
                     </span>
                     {currency}                
                 </div>

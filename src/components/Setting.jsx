@@ -37,7 +37,7 @@ const Setting = ({ name, id, startingBalance, balance, currency, regularIncomeOr
 
 
     return ( 
-        <div className={showSetting ? `absolute -top-[13rem] px-10 py-10 w-screen min-h-screen bg-slate-400 relative` : `hidden`}>
+        <div className={showSetting ? `px-10 py-10 w-screen min-h-screen bg-slate-400 relative` : `hidden`}>
             {/* hide setting button */}
             <button className="absolute top-0 right-2 " onClick={() => setShowSetting(false)}>
                 <i className="fa-solid fa-xmark text-3xl p-2" onClick={() => setShowSetting(false)}></i>

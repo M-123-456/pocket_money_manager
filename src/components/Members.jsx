@@ -1,6 +1,20 @@
 import Member from './Member';
 import { nanoid } from 'nanoid';
 
+const MEMBER = {
+    NAME: 'name',
+    STARTING_BALANCE: 'startingBalance',
+    CURRENCY: 'currency',
+    ID: 'id',
+    REGULAR_INCOME_OR_EXPENSE: 'regularIncomeOrExpense',
+    CYCLE: 'cycle',
+    STARTING_DATE: 'startingDate',
+    AMOUNT: 'Amount',
+    MOVEMENTS: 'movements',
+    BALANCE: 'balance',
+    DELETED: 'deleted'
+};
+
 const Members = ( { setMembers, filteredMembers, showSetting, setShowSetting } ) => {
 
     // functions
@@ -15,12 +29,12 @@ const Members = ( { setMembers, filteredMembers, showSetting, setShowSetting } )
                     startingBalance: 0,
                     currency: 'EUR',
                     id: nanoid(),
-                    regularIncomeOrExpense: { cycle: false, startingDate: "", Amount: 0 },
+                    regularIncomeOrExpense: { cycle: false, startingDate: "", amount: 0 },
                     movements: [],
                     // ? how can the balance be set?
                     balance(){
-                        let balance = this.startingBalance;
-                        for(const movement in this.movements){
+                        let balance = this.STARTING_BALANCE;
+                        for(const movement in this.MOVEMENTS){
                             balance += movement
                         }
                         return balance;
